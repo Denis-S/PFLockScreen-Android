@@ -47,7 +47,6 @@ public class PFLockScreenFragment extends Fragment {
     private View mFingerprintButton;
     private View mDeleteButton;
     private TextView mLeftButton;
-    private Button mNextButton;
     private PFCodeView mCodeView;
     private TextView titleView;
 
@@ -91,7 +90,6 @@ public class PFLockScreenFragment extends Fragment {
         mDeleteButton = view.findViewById(R.id.button_delete);
 
         mLeftButton = view.findViewById(R.id.button_left);
-        mNextButton = view.findViewById(R.id.button_next);
 
         mDeleteButton.setOnClickListener(mOnDeleteButtonClickListener);
         mDeleteButton.setOnLongClickListener(mOnDeleteButtonOnLongClickListener);
@@ -141,10 +139,6 @@ public class PFLockScreenFragment extends Fragment {
             mLeftButton.setOnClickListener(mOnLeftButtonClickListener);
         }
 
-        if (!TextUtils.isEmpty(configuration.getNextButton())) {
-            mNextButton.setText(configuration.getNextButton());
-        }
-
         mUseFingerPrint = configuration.isUseFingerprint();
         if (!mUseFingerPrint) {
             mFingerprintButton.setVisibility(View.GONE);
@@ -157,13 +151,6 @@ public class PFLockScreenFragment extends Fragment {
             mFingerprintButton.setVisibility(View.GONE);
         }
 
-        if (mIsCreateMode) {
-            mNextButton.setOnClickListener(mOnNextButtonClickListener);
-        } else {
-            mNextButton.setOnClickListener(null);
-        }
-
-        mNextButton.setVisibility(View.INVISIBLE);
         mCodeView.setCodeLength(mConfiguration.getCodeLength());
     }
 
@@ -307,8 +294,8 @@ public class PFLockScreenFragment extends Fragment {
         @Override
         public void onCodeCompleted(String code) {
             if (mIsCreateMode) {
-                mNextButton.setVisibility(View.VISIBLE);
                 mCode = code;
+                next();
                 return;
             }
             mCode = code;
@@ -342,52 +329,44 @@ public class PFLockScreenFragment extends Fragment {
 
         @Override
         public void onCodeNotCompleted(String code) {
-            if (mIsCreateMode) {
-                mNextButton.setVisibility(View.INVISIBLE);
-                return;
-            }
         }
     };
 
-
-    private final View.OnClickListener mOnNextButtonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (mConfiguration.isNewCodeValidation() && TextUtils.isEmpty(mCodeValidation)) {
-                mCodeValidation = mCode;
-                cleanCode();
-                titleView.setText(mConfiguration.getNewCodeValidationTitle());
-                return;
-            }
-            if (mConfiguration.isNewCodeValidation() && !TextUtils.isEmpty(mCodeValidation) && !mCode.equals(mCodeValidation)) {
-                mCodeCreateListener.onNewCodeValidationFailed();
-                titleView.setText(mConfiguration.getTitle());
-                cleanCode();
-                return;
-            }
-            mCodeValidation = "";
-            mPFPinCodeViewModel.encodePin(getContext(), mCode).observe(
-                    PFLockScreenFragment.this,
-                    new Observer<PFResult<String>>() {
-                        @Override
-                        public void onChanged(@Nullable PFResult<String> result) {
-                            if (result == null) {
-                                return;
-                            }
-                            if (result.getError() != null) {
-                                Log.d(TAG, "Can not encode pin code");
-                                deleteEncodeKey();
-                                return;
-                            }
-                            final String encodedCode = result.getResult();
-                            if (mCodeCreateListener != null) {
-                                mCodeCreateListener.onCodeCreated(encodedCode);
-                            }
+    private void next() {
+        if (mConfiguration.isNewCodeValidation() && TextUtils.isEmpty(mCodeValidation)) {
+            mCodeValidation = mCode;
+            cleanCode();
+            titleView.setText(mConfiguration.getNewCodeValidationTitle());
+            return;
+        }
+        if (mConfiguration.isNewCodeValidation() && !TextUtils.isEmpty(mCodeValidation) && !mCode.equals(mCodeValidation)) {
+            mCodeCreateListener.onNewCodeValidationFailed();
+            titleView.setText(mConfiguration.getTitle());
+            cleanCode();
+            return;
+        }
+        mCodeValidation = "";
+        mPFPinCodeViewModel.encodePin(getContext(), mCode).observe(
+                PFLockScreenFragment.this,
+                new Observer<PFResult<String>>() {
+                    @Override
+                    public void onChanged(@Nullable PFResult<String> result) {
+                        if (result == null) {
+                            return;
+                        }
+                        if (result.getError() != null) {
+                            Log.d(TAG, "Can not encode pin code");
+                            deleteEncodeKey();
+                            return;
+                        }
+                        final String encodedCode = result.getResult();
+                        if (mCodeCreateListener != null) {
+                            mCodeCreateListener.onCodeCreated(encodedCode);
                         }
                     }
-            );
-        }
-    };
+                }
+        );
+    }
 
     private void cleanCode() {
         mCode = "";

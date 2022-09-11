@@ -14,7 +14,6 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 public class PFFLockScreenConfiguration implements Serializable {
 
     private String mLeftButton = "";
-    private String mNextButton = "";
     private boolean mUseFingerprint = false;
     private boolean mAutoShowFingerprint = false;
     private String mTitle = "";
@@ -28,7 +27,6 @@ public class PFFLockScreenConfiguration implements Serializable {
 
     private PFFLockScreenConfiguration(Builder builder) {
         mLeftButton = builder.mLeftButton;
-        mNextButton = builder.mNextButton;
         mUseFingerprint = builder.mUseFingerprint;
         mAutoShowFingerprint = builder.mAutoShowFingerprint;
         mTitle = builder.mTitle;
@@ -43,10 +41,6 @@ public class PFFLockScreenConfiguration implements Serializable {
 
     public String getLeftButton() {
         return mLeftButton;
-    }
-
-    public String getNextButton() {
-        return mNextButton;
     }
 
     public boolean isUseFingerprint() {
@@ -93,7 +87,6 @@ public class PFFLockScreenConfiguration implements Serializable {
     public static class Builder {
 
         private String mLeftButton = "";
-        private String mNextButton = "";
         private boolean mUseFingerprint = false;
         private boolean mAutoShowFingerprint = false;
         private String mTitle = "";
@@ -117,11 +110,6 @@ public class PFFLockScreenConfiguration implements Serializable {
 
         public Builder setLeftButton(String leftButton) {
             mLeftButton = leftButton;
-            return this;
-        }
-
-        public Builder setNextButton(String nextButton) {
-            mNextButton = nextButton;
             return this;
         }
 

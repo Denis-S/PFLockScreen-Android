@@ -302,16 +302,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp" />
 
-            <Button
-                android:id="@+id/button_next"
-                style="?pf_next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="@string/next_pf"
-                android:theme="@style/PFLockScreenNextTextStyle"
-                android:visibility="visible" />
-
         </LinearLayout>
 
     </LinearLayout>
