@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Vibrator;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -295,7 +297,15 @@ public class PFLockScreenFragment extends Fragment {
         public void onCodeCompleted(String code) {
             if (mIsCreateMode) {
                 mCode = code;
-                next();
+                mCodeView.setEnabled(false);
+                final Handler handler = new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mCodeView.setEnabled(true);
+                        next();
+                    }
+                }, 500);
                 return;
             }
             mCode = code;
