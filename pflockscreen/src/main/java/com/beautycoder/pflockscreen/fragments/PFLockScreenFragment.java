@@ -186,8 +186,12 @@ public class PFLockScreenFragment extends Fragment {
     private final View.OnClickListener mOnDeleteButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            final int codeLength = mCodeView.delete();
-            configureRightButton(codeLength);
+            if (mCodeView.getInputCodeLength() == 0) {
+                mLoginListener.onCancel();
+            } else {
+                final int codeLength = mCodeView.delete();
+                configureRightButton(codeLength);
+            }
         }
     };
 
@@ -515,6 +519,10 @@ public class PFLockScreenFragment extends Fragment {
          */
         void onFingerprintLoginFailed();
 
+        /**
+         * Callback method for cancel login attempt.
+         */
+        void onCancel();
     }
 
 
