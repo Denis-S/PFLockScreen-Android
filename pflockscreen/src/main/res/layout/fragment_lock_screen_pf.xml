@@ -28,7 +28,9 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:text="@string/lock_screen_title_pf"
-            android:theme="@style/PFLockScreenTitleTextStyle" />
+            android:theme="@style/PFLockScreenTitleTextStyle"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
 
         <com.beautycoder.pflockscreen.views.PFCodeView
             android:id="@+id/code_view"
@@ -53,8 +55,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="1"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -69,8 +71,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="2"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -85,8 +87,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="3"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -109,8 +111,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="4"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -125,8 +127,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="5"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -141,8 +143,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="6"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -165,8 +167,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="7"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -181,8 +183,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="8"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -197,8 +199,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="9"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -224,7 +226,8 @@
                     android:background="@drawable/side_button_background_pf"
                     android:clickable="true"
                     android:focusable="true"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="@string/forgot_pf"
                     android:theme="@style/PFLockScreenHintTextStyle"
                     style="?pf_hint"/>
@@ -240,8 +243,8 @@
                     style="?pf_key_button"
                     android:layout_width="@dimen/button_lock_screen_fp_size"
                     android:layout_height="@dimen/button_lock_screen_fp_size"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text="0"
                     android:theme="@style/PFLockScreenButtonStyle" />
             </FrameLayout>
@@ -255,8 +258,8 @@
                     android:id="@+id/button_right"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
                     android:text=""
                     android:visibility="gone" />
 
