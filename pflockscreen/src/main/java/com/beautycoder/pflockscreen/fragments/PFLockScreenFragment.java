@@ -264,14 +264,11 @@ public class PFLockScreenFragment extends Fragment {
 
         if (mUseFingerPrint && mFingerprintHardwareDetected) {
             mFingerprintButton.setVisibility(View.VISIBLE);
-            mDeleteButton.setVisibility(View.GONE);
         } else {
             mFingerprintButton.setVisibility(View.GONE);
-            mDeleteButton.setVisibility(View.VISIBLE);
         }
 
-        mDeleteButton.setEnabled(false);
-
+        mDeleteButton.setVisibility(View.GONE);
     }
 
     private boolean isFingerprintApiAvailable(Context context) {
