@@ -111,6 +111,8 @@ public class PFLockScreenFragment extends Fragment {
         mRootView = view;
         applyConfiguration(mConfiguration);
 
+        configureRightButton(0);
+
         return view;
     }
 
@@ -187,7 +189,9 @@ public class PFLockScreenFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if (mCodeView.getInputCodeLength() == 0) {
-                mLoginListener.onCancel();
+                if (mLoginListener != null) {
+                    mLoginListener.onCancel();
+                }
             } else {
                 final int codeLength = mCodeView.delete();
                 configureRightButton(codeLength);
