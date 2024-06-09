@@ -357,6 +357,7 @@ public class PFLockScreenFragment extends Fragment {
         if (mConfiguration.isNewCodeValidation() && !TextUtils.isEmpty(mCodeValidation) && !mCode.equals(mCodeValidation)) {
             mCodeCreateListener.onNewCodeValidationFailed();
             titleView.setText(mConfiguration.getTitle());
+            mCodeValidation = "";
             cleanCode();
             return;
         }
@@ -386,7 +387,6 @@ public class PFLockScreenFragment extends Fragment {
     private void cleanCode() {
         mCode = "";
         mCodeView.clearCode();
-        mCodeValidation = "";
         configureRightButton(0);
     }
 
