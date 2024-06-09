@@ -386,6 +386,7 @@ public class PFLockScreenFragment extends Fragment {
     private void cleanCode() {
         mCode = "";
         mCodeView.clearCode();
+        mCodeValidation = "";
         configureRightButton(0);
     }
 
