@@ -6,6 +6,11 @@
     android:clickable="true"
     android:focusable="true">
 
+    <ImageView
+        style="?pf_lock_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/PFLockScreenStyle" />
 
     <LinearLayout
         android:id="@+id/root_linearlayout"
