@@ -10,14 +10,13 @@
     <ImageView
         style="?pf_lock_screen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:theme="@style/PFLockScreenStyle" />
 
     <LinearLayout
-        style="?pf_lock_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:theme="@style/PFLockScreenStyle">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
